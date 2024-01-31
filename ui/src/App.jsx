@@ -86,6 +86,7 @@ const App = () => {
     }
     setPersons(persons.concat(personObject));
     service.createEntry(personObject).then((response) => {
+      console.log('posting')
       setPersons(persons.concat(response));
       setMessage(`${newName} has been added to the phonebook.`);
       setSuccess(true);
