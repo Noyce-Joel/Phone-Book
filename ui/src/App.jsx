@@ -56,14 +56,15 @@ const App = () => {
       service
         .updateEntry(id, personObject)
         .then((response) => {
-          setPersons(
-            persons.map((person) => (person.id !== id ? person : response))
-          );
+          // setPersons(
+          //   persons.map((person) => (person.id !== id ? person : response))
+          // );
+          window.location.reload();
           setMessage(`${newName}'s number has been updated.`);
           setSuccess(true);
           setTimeout(() => {
             setMessage(null);
-            window.location.reload();
+            
           }, 5000);
         })
         .catch((error) => {
