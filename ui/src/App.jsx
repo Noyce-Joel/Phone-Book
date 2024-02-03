@@ -61,6 +61,8 @@ const App = () => {
           );
           setMessage(`${newName}'s number has been updated.`);
           setSuccess(true);
+          setNewName("");
+          setNewNumber("");
           setTimeout(() => {
             
             setMessage(null);
