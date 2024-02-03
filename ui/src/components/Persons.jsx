@@ -1,18 +1,16 @@
 import React from "react";
 import DeleteButton from "./DeleteButton";
 
-function Persons({ search, filteredSearch, persons, handleDelete}) {
-  console.log(filteredSearch);
-  
+function Persons({ search, filteredSearch, persons, handleDelete }) {
   return (
     <>
       {search.length > 0 ? (
         <div>
           {filteredSearch.map((person, idx) => {
-            console.log(person); // Add this line
             return (
               <p key={person.name}>
-                {person.name} {person.number} <DeleteButton handleDelete={handleDelete} id={person.id} />
+                {person.name} {person.number}{" "}
+                <DeleteButton handleDelete={handleDelete} id={person.id} />
               </p>
             );
           })}
@@ -20,10 +18,10 @@ function Persons({ search, filteredSearch, persons, handleDelete}) {
       ) : (
         <div>
           {persons.map((person) => {
-            console.log(person); // Add this line
             return (
               <p key={person.name}>
-                {person.name} {person.number} <DeleteButton handleDelete={handleDelete} id={person.id} />
+                {person.name} {person.number}{" "}
+                <DeleteButton handleDelete={handleDelete} id={person.id} />
               </p>
             );
           })}
