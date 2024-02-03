@@ -57,13 +57,14 @@ const App = () => {
         .updateEntry(id, personObject)
         .then((response) => {
           setPersons(
-            response
+            persons.map((person) => (person.id !== id ? person : {...person, number: newNumber}))
           );
           setMessage(`${newName}'s number has been updated.`);
           setSuccess(true);
           setTimeout(() => {
+            
             setMessage(null);
-          }, 5000);
+          }, 2000);
         })
         .catch((error) => {
           setMessage(
