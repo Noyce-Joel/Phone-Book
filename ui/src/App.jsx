@@ -63,6 +63,7 @@ const App = () => {
           setSuccess(true);
           setTimeout(() => {
             setMessage(null);
+            window.location.reload();
           }, 5000);
         })
         .catch((error) => {
