@@ -96,6 +96,13 @@ const App = () => {
       setTimeout(() => {
         setMessage(null);
       }, 5000);
+    }).catch((error) => {
+      console.log(error.response.data);
+      setMessage(error.response.data.error);
+      setSuccess(false);
+      setTimeout(() => {
+        setMessage(null);
+      }, 5000);
     });
 
     setNewName("");
