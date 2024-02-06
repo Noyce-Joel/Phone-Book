@@ -2,7 +2,7 @@ import { useState } from "react";
 import PersonForm from "./components/PersonForm";
 import Persons from "./components/Persons";
 import Filter from "./components/Filter";
-import axios from "axios";
+
 import { useEffect } from "react";
 import service from "./services/entries";
 import Notification from "./components/Notification";
@@ -56,6 +56,7 @@ const App = () => {
       service
         .updateEntry(id, personObject)
         .then((response) => {
+          console.log(response);
           setPersons(
             persons.map((person) =>
               person.id !== id ? person : { ...person, number: newNumber }
@@ -70,6 +71,7 @@ const App = () => {
           }, 2000);
         })
         .catch((error) => {
+          console.log(error.response.data)
           setMessage(
             "Error updating: The person was already deleted from the server"
           );
@@ -130,6 +132,7 @@ const App = () => {
           setMessage("Deleted successfully");
         })
         .catch((error) => {
+          console.log(error.response.data);
           setMessage(
             "Error deleting: The person was already deleted from the server"
           );

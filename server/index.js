@@ -102,6 +102,7 @@ app.delete("/api/contacts/:id", (req, res) => {
       res.status(204).end();
     })
     .catch((error) => {
+      // eslint-disable-next-line no-undef
       next(error);
     });
 });

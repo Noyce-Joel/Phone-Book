@@ -6,9 +6,9 @@ if (process.argv.length < 3) {
 }
 
 const generateId = () => {
-    const id = Math.floor(Math.random() * 100000);
-    return id;
-}
+  const id = Math.floor(Math.random() * 100000);
+  return id;
+};
 
 const password = process.argv[2];
 const name = process.argv[3];
@@ -27,20 +27,18 @@ const contactSchema = new mongoose.Schema({
 
 const Contact = mongoose.model("Contact", contactSchema);
 
-
-
 const contact = new Contact({
-    _id: generateId(),
-    name: name,
-    number: number,
-    });
+  _id: generateId(),
+  name: name,
+  number: number,
+});
 
-    
-name && number ? 
-contact.save().then((result) => {
-  console.log(`added ${name} number ${number} to phonebook`);
-  mongoose.connection.close();
-}) : null;
+name && number
+  ? contact.save().then((result) => {
+    console.log(`added ${name} number ${number} to phonebook`);
+    mongoose.connection.close();
+  })
+  : null;
 
 Contact.find({}).then((result) => {
   result.forEach((contact) => {
