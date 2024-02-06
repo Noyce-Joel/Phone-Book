@@ -1,1 +1,2 @@
-const work = 'work'
+const work = 'work';
+const hello = 'hello';
