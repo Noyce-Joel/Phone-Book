@@ -57,14 +57,15 @@ const App = () => {
         .updateEntry(id, personObject)
         .then((response) => {
           setPersons(
-            persons.map((person) => (person.id !== id ? person : {...person, number: newNumber}))
+            persons.map((person) =>
+              person.id !== id ? person : { ...person, number: newNumber }
+            )
           );
           setMessage(`${newName}'s number has been updated.`);
           setSuccess(true);
           setNewName("");
           setNewNumber("");
           setTimeout(() => {
-            
             setMessage(null);
           }, 2000);
         })
@@ -87,23 +88,26 @@ const App = () => {
       }, 5000);
       return;
     }
-    // setPersons(persons.concat(personObject));
-    service.createEntry(personObject).then((response) => {
-      console.log('posting')
-      setPersons(persons.concat(response));
-      setMessage(`${newName} has been added to the phonebook.`);
-      setSuccess(true);
-      setTimeout(() => {
-        setMessage(null);
-      }, 5000);
-    }).catch((error) => {
-      console.log(error.response.data);
-      setMessage(error.response.data.error);
-      setSuccess(false);
-      setTimeout(() => {
-        setMessage(null);
-      }, 5000);
-    });
+
+    service
+      .createEntry(personObject)
+      .then((response) => {
+        console.log("posting");
+        setPersons(persons.concat(response));
+        setMessage(`${newName} has been added to the phonebook.`);
+        setSuccess(true);
+        setTimeout(() => {
+          setMessage(null);
+        }, 5000);
+      })
+      .catch((error) => {
+        console.log(error.response.data);
+        setMessage(error.response.data.error);
+        setSuccess(false);
+        setTimeout(() => {
+          setMessage(null);
+        }, 5000);
+      });
 
     setNewName("");
     setNewNumber("");
