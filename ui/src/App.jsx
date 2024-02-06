@@ -87,7 +87,7 @@ const App = () => {
       }, 5000);
       return;
     }
-    setPersons(persons.concat(personObject));
+    // setPersons(persons.concat(personObject));
     service.createEntry(personObject).then((response) => {
       console.log('posting')
       setPersons(persons.concat(response));
