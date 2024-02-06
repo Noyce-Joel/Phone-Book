@@ -106,7 +106,7 @@ const App = () => {
         setSuccess(false);
         setTimeout(() => {
           setMessage(null);
-        }, 5000);
+        },5000);
       });
 
     setNewName("");
